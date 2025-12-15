@@ -8,15 +8,15 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/Nick-Limber/k3s-gitops-config  # <-- Points to THIS repository
+    repoURL: https://github.com/Nick-Limber/k3s-gitops-config
     targetRevision: HEAD
-    path: argocd/apps # <-- Directory containing the child Application definitions (Part 2.3 below)
+    path: argocd/apps
   destination:
     server: https://kubernetes.default.svc
-    namespace: argocd # Targets the namespace where the child Application resources will be created
+    namespace: argocd
   syncPolicy:
     automated:
       prune: true
       selfHeal: true
     syncOptions:
-    - CreateNamespace=true
+      - CreateNamespace=true

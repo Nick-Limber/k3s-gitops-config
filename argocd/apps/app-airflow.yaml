@@ -3,7 +3,7 @@ kind: Application
 metadata:
   name: airflow-platform-dev
   namespace: airflow
-
+  
 spec:
   project: default
   source:
@@ -14,7 +14,7 @@ spec:
       valueFiles:
         - clusters/prod/values-airflow.yaml
   destination:
-    server: in-cluster
+    server: https://kubernetes.default.svc
     namespace: airflow-prod
 
 syncPolicy:
