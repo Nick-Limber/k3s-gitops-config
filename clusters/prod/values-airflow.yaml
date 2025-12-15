@@ -1,0 +1,13 @@
+Users:
+  username: NickLimber
+  password: NickLimber
+  role: Admin
+  email: nlimber@proton.me
+  firstName: Nick
+  lastName: Limber
+postgresql:
+  enabled: true
+persistence:
+  enabled: true
+  storageClass: ""
+  size: 8Gi

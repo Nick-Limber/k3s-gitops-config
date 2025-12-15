@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: airflow-platform-dev
+  namespace: airflow
+  
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/Nick-Limber/k3s-gitops-config
+    targetRevision: HEAD
+    path: infrastructure/airflow 
+    helm:
+      valueFiles:
+        - clusters/prod/values-airflow.yaml
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: airflow-dev
+
+syncPolicy:
+  automated:
+    prune: true
+    selfHeal: true
