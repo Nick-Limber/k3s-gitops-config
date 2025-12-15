@@ -12,7 +12,7 @@ spec:
     path: infrastructure/airflow 
     helm:
       valueFiles:
-        - clusters/prod/values-airflow.yaml
+        - values/values-airflow.yaml
   destination:
     server: https://kubernetes.default.svc
     namespace: airflow-prod
