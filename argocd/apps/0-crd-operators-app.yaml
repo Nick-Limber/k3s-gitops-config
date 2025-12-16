@@ -14,7 +14,6 @@ spec:
   source:
     repoURL: https://github.com/kubeflow/manifests
     path: applications/training-operator/upstream/overlays/standalone
-
   syncPolicy:
     automated:
       prune: true
