@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: training-operators
+  namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-wave: "0" # Deploy FIRST (CRDs must be present)
+spec:
+  project: default
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: kubeflow # Use a dedicated namespace for Kubeflow core
+    createNamespace: true
+  source:
+    repoURL: https://github.com/kubeflow/manifests
+    targetRevision: v1.8.0
+    path: applications/training-operator/overlays/standalone
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true

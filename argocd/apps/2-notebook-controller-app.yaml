@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: notebook-system
+  namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-wave: "2" # Deploy LAST (after dashboard/auth is ready)
+spec:
+  project: default
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: kubeflow
+  source:
+    repoURL: https://github.com/kubeflow/manifests 
+    targetRevision: v1.8.0
+    path: apps/jupyter/notebook-controller/overlays/kubeflow
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true

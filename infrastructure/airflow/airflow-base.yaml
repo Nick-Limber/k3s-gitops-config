@@ -10,17 +10,10 @@ spec:
   source:
     repoURL: https://airflow-helm.github.io/charts 
     chart: airflow
-    helm:
-      values: |
-        executor: KubernetesExecutor
-        flower:
-          enabled: false
-        redis:
-          enabled: false
 
   destination:
     server: https://kubernetes.default.svc
-    namespace: airflow-prod
+    namespace: airflow
   syncPolicy:
     automated:
       prune: true

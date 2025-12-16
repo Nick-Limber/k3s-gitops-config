@@ -1,0 +1,22 @@
+# apps/0-spark-operator-app.yaml
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: spark-operator
+  namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-wave: "0" # Deploy FIRST (CRD must be present)
+spec:
+  project: default
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: spark-system
+    createNamespace: true
+  source:
+    repoURL: https://kubeflow.github.io/spark-operator
+    targetRevision: 2.4.0 
+    chart: spark-operator
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
