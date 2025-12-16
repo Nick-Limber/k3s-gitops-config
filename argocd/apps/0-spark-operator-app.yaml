@@ -13,8 +13,7 @@ spec:
     createNamespace: true
   source:
   repoURL: https://github.com/kubeflow/spark-operator
-  targetRevision: 2.4.0 
-  chart: spark-operator
+  path: charts/spark-operator-chart
   helm:
     releaseName: spark-operator
     skipCrds: false
