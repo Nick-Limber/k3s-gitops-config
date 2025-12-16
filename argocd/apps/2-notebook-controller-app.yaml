@@ -13,8 +13,10 @@ spec:
   source:
     repoURL: https://github.com/kubeflow/manifests 
     targetRevision: v1.8.0
-    path: apps/jupyter/notebook-controller/overlays/kubeflow
+    path: applications/jupyter/notebook-controller/upstream/overlays/kubeflow
   syncPolicy:
     automated:
       prune: true
       selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
