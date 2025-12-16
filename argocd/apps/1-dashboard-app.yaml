@@ -12,9 +12,10 @@ spec:
     namespace: kubeflow 
   source:
     repoURL: https://github.com/kubeflow/manifests
-    targetRevision: v1.8.0
     path: applications/central-dashboard/overlays/istio
   syncPolicy:
     automated:
       prune: true
       selfHeal: true
+    syncOptions:
+      - CreateNamespace=true

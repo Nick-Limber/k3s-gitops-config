@@ -12,7 +12,6 @@ spec:
     namespace: kubeflow
   source:
     repoURL: https://github.com/kubeflow/manifests 
-    targetRevision: v1.8.0
     path: applications/jupyter/notebook-controller/upstream/overlays/kubeflow
   syncPolicy:
     automated:
