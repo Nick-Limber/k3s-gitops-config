@@ -12,7 +12,7 @@ spec:
     namespace: kubeflow 
   source:
     repoURL: https://github.com/kubeflow/manifests
-    path: applications/central-dashboard/overlays/istio
+    path: applications/centraldashboard/upstream/overlays/istio
   syncPolicy:
     automated:
       prune: true
