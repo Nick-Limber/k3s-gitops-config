@@ -12,12 +12,23 @@ spec:
     namespace: spark-operator
     createNamespace: true
   source:
-    repoURL: https://kubeflow.github.io/spark-operator
+repoURL: https://kubeflow.github.io/spark-operator
     targetRevision: 2.4.0 
-    path: charts/spark-operator-chart
+    chart: spark-operator
+    helm:
+      releaseName: spark-operator
+      skipCrds: false
+      parameters:
+      - name: "helm.sh/hook"
+        value: "crd-install"
+      skipCrds: false
+      passCredentials: true
+      ignoreUnknownParameters: true
+      values: |
+        installCRDs: true
   syncPolicy:
     automated:
       prune: true
       selfHeal: true
     syncOptions:
-    - CreateNamespace=true
+      - CreateNamespace=true
