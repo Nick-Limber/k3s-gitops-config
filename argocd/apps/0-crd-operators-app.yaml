@@ -9,12 +9,11 @@ spec:
   project: default
   destination:
     server: https://kubernetes.default.svc
-    namespace: kubeflow # Use a dedicated namespace for Kubeflow core
+    namespace: kubeflow-training
     createNamespace: true
   source:
     repoURL: https://github.com/kubeflow/manifests
-    targetRevision: v1.8.0
-    path: applications/training-operator/overlays/standalone
+    path: applications/training-operator/upstream/overlays/standalone
   syncPolicy:
     automated:
       prune: true
