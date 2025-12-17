@@ -8,7 +8,7 @@ spec:
   project: default
   destination:
     server: https://kubernetes.default.svc
-    namespace: kubeflow # IMPORTANT: Ensure this namespace exists!
+    namespace: kubeflow
   source:
     repoURL: https://github.com/kubeflow/manifests.git
     path: applications/centraldashboard/upstream/overlays/istio
@@ -18,4 +18,3 @@ spec:
       selfHeal: true
     syncOptions:
       - CreateNamespace=true
-      - 'kustomize-build-options=--enable-alpha-plugins'
