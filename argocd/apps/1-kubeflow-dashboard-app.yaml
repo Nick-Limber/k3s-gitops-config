@@ -11,8 +11,7 @@ spec:
     namespace: kubeflow # IMPORTANT: Ensure this namespace exists!
   source:
     repoURL: https://github.com/kubeflow/manifests.git
-    targetRevision: v1.8.0 # IMPORTANT: Use the Kubeflow version you are targeting
-    path: common/central-dashboard/overlays/istio
+    path: applications/centraldashboard/upstream/overlays/istio
   syncPolicy:
     automated:
       prune: true
