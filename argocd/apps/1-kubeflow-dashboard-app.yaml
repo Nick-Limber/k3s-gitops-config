@@ -1,0 +1,22 @@
+kind: Application
+metadata:
+  name: kubeflow-central-dashboard
+  namespace: argocd 
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: kubeflow # IMPORTANT: Ensure this namespace exists!
+  source:
+    repoURL: https://github.com/kubeflow/manifests.git
+    targetRevision: v1.8.0 # IMPORTANT: Use the Kubeflow version you are targeting
+    path: common/central-dashboard/overlays/istio
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+      - 'kustomize-build-options=--enable-alpha-plugins'
