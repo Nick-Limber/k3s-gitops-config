@@ -7,7 +7,6 @@ spec:
   project: default
   source:
     repoURL: https://github.com/kubeflow/manifests.git
-    targetRevision: v1.8.0
     path: common/istio/kubeflow-istio-resources/base
   destination:
     server: https://kubernetes.default.svc
