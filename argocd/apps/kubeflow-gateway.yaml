@@ -10,7 +10,7 @@ spec:
     path: common/istio/kubeflow-istio-resources/base
   destination:
     server: https://kubernetes.default.svc
-    namespace: kubeflow
+    namespace: kubeflow-gateway
   syncPolicy:
     automated:
       prune: true
