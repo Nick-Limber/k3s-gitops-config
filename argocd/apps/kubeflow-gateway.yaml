@@ -11,6 +11,15 @@ spec:
   destination:
     server: https://kubernetes.default.svc
     namespace: kubeflow-gateway
+  selector:
+    istio: ingressgateway
+  servers:
+  - port:
+      number: 8081
+      name: http
+      protocol: HTTP
+    hosts:
+    - "*"
   syncPolicy:
     automated:
       prune: true
