@@ -13,15 +13,15 @@ spec:
     targetRevision: master
     kustomize:
       patches:
-        - target:
-            kind: Deployment
+      - target:
+            kind: DaemonSet
             name: istio-cni-node
-          patch: |-
+            patch: |-
             - op: replace
-              path: /spec/template/spec/containers/0/env/name=CNI_CONF_DIR/value
-              value: /var/lib/rancher/k3s/agent/etc/cni/net.d
+              path: /spec/template/spec/volumes/0/hostPath/path
+              value: /var/lib/rancher/k3s/data/current/bin
             - op: replace
-              path: /spec/template/spec/containers/0/env/name=CNI_NET_DIR/value
+              path: /spec/template/spec/volumes/2/hostPath/path
               value: /var/lib/rancher/k3s/agent/etc/cni/net.d
   destination:
     server: https://kubernetes.default.svc
