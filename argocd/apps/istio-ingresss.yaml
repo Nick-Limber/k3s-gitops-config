@@ -8,6 +8,7 @@ spec:
   source:
     repoURL: https://istio-release.storage.googleapis.com/charts
     chart: gateway
+    targetRevision: 1.22.0
   destination:
     server: https://kubernetes.default.svc
     namespace: istio-ingress # Good practice to keep gateway separate
