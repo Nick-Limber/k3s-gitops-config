@@ -20,9 +20,19 @@ spec:
           - op: replace
             path: /spec/template/spec/volumes/0/hostPath/path
             value: /var/lib/rancher/k3s/data/current/bin
+          
+          # 2. Change the HostPath for the CNI network config
           - op: replace
             path: /spec/template/spec/volumes/2/hostPath/path
             value: /var/lib/rancher/k3s/agent/etc/cni/net.d
+
+          # 3. Update the Environment Variables so the script knows where to work
+          - op: replace
+            path: /spec/template/spec/containers/0/env/0/value
+            value: /var/lib/rancher/k3s/agent/etc/cni/net.d
+          - op: replace
+            path: /spec/template/spec/containers/0/env/1/value
+            value: /var/lib/rancher/k3s/data/current/bin
   destination:
     server: https://kubernetes.default.svc
     namespace: istio-system
