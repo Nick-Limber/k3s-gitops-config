@@ -11,7 +11,7 @@ spec:
     targetRevision: 1.22.0
   destination:
     server: https://kubernetes.default.svc
-    namespace: istio-ingress # Good practice to keep gateway separate
+    namespace: istio-ingress
   syncPolicy:
     automated:
       prune: true
