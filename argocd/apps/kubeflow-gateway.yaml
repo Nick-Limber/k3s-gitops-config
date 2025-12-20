@@ -14,8 +14,7 @@ spec:
   selector:
     istio: ingressgateway
   servers:
-  - port:
-      number: 8081
+    number: 8080  
       name: http
       protocol: HTTP
     hosts:
