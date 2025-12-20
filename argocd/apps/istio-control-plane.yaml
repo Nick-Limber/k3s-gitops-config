@@ -16,13 +16,13 @@ spec:
       - target:
           kind: DaemonSet
           name: istio-cni-node
-          patch: |-
-            - op: replace
-              path: /spec/template/spec/volumes/0/hostPath/path
-              value: /var/lib/rancher/k3s/data/current/bin
-            - op: replace
-              path: /spec/template/spec/volumes/2/hostPath/path
-              value: /var/lib/rancher/k3s/agent/etc/cni/net.d
+        patch: |-
+          - op: replace
+            path: /spec/template/spec/volumes/0/hostPath/path
+            value: /var/lib/rancher/k3s/data/current/bin
+          - op: replace
+            path: /spec/template/spec/volumes/2/hostPath/path
+            value: /var/lib/rancher/k3s/agent/etc/cni/net.d
   destination:
     server: https://kubernetes.default.svc
     namespace: istio-system
