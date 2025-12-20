@@ -14,9 +14,9 @@ spec:
     kustomize:
       patches:
       - target:
-            kind: DaemonSet
-            name: istio-cni-node
-            patch: |-
+          kind: DaemonSet
+          name: istio-cni-node
+          patch: |-
             - op: replace
               path: /spec/template/spec/volumes/0/hostPath/path
               value: /var/lib/rancher/k3s/data/current/bin
