@@ -1,0 +1,28 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: spark-operator
+  namespace: argocd # ArgoCD runs in the argocd namespace
+spec:
+  project: default
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: spark-operator # Operator will be deployed here
+    createNamespace: true
+  
+  source:
+    repoURL: https://kubeflow.github.io/spark-operator # Official Helm Chart URL
+    targetRevision: 2.4.0 # Use a specific, stable version
+    chart: spark-operator
+  
+  # You would reference a values file here to set things like
+  # `jobNamespaces` if you want the operator to only watch specific namespaces.
+  # values:
+  #   controller.sparkJobNamespaces: ["spark-jobs"]
+  
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
