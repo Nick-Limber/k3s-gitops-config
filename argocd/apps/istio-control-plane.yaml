@@ -20,6 +20,9 @@ spec:
             - op: replace
               path: /spec/template/spec/containers/0/env/name=CNI_CONF_DIR/value
               value: /var/lib/rancher/k3s/agent/etc/cni/net.d
+            - op: replace
+              path: /spec/template/spec/containers/0/env/name=CNI_NET_DIR/value
+              value: /var/lib/rancher/k3s/agent/etc/cni/net.d
   destination:
     server: https://kubernetes.default.svc
     namespace: istio-system
