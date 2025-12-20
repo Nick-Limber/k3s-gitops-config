@@ -10,7 +10,7 @@ spec:
     path: common/istio/istio-install/base
     targetRevision: master
     helm:
-      values:
+      values: |
         cni:
           cniConfDir: /var/lib/rancher/k3s/agent/etc/cni/net.d
           cniBinDir: /var/lib/rancher/k3s/data/current/bin
