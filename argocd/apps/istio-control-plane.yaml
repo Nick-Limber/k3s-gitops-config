@@ -9,6 +9,11 @@ spec:
     repoURL: https://github.com/kubeflow/manifests.git
     path: common/istio/istio-install/base
     targetRevision: master
+    helm:
+      values:
+        cni:
+          cniConfDir: /var/lib/rancher/k3s/agent/etc/cni/net.d
+          cniBinDir: /var/lib/rancher/k3s/data/current/bin
   destination:
     server: https://kubernetes.default.svc
     namespace: istio-system
