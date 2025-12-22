@@ -9,7 +9,7 @@ spec:
   project: default
   source:
     repoURL: 'https://github.com/kubeflow/manifests.git'
-    path: apps/profiles/upstream/overlays/kubeflow
+    path: applications/profiles/upstream/overlays/kubeflow
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: kubeflow
