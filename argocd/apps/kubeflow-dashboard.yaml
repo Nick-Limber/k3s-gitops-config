@@ -1,0 +1,25 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: kubeflow-dashboard
+  namespace: argocd
+  annotations:
+    # Wave 5: Deploys AFTER Profile Controller (Wave 3) and Istio (Wave 1)
+    argocd.argoproj.io/sync-wave: "5"
+spec:
+  project: default
+  source:
+    repoURL: 'https://github.com/kubeflow/manifests.git'
+    targetRevision: v1.8.0 
+    # Use the 'istio' overlay to include the VirtualService and Istio integration
+    path: applications/centraldashboard/upstream/overlays/istio
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: kubeflow
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+      - ServerSideApply=true
