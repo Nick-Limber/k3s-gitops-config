@@ -14,17 +14,6 @@ spec:
   source:
     repoURL: https://github.com/kubeflow/spark-operator
     path: charts/spark-operator-chart
-    helm:
-      releaseName: spark-operator
-      skipCrds: false
-      parameters:
-      - name: "helm.sh/hook"
-        value: "crd-install"
-      skipCrds: false
-      passCredentials: true
-      ignoreUnknownParameters: true
-      values: |
-        installCRDs: true
       
   ignoreDifferences:
   - group: apiextensions.k8s.io
