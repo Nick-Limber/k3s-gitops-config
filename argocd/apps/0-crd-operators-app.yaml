@@ -10,7 +10,6 @@ spec:
   destination:
     server: https://kubernetes.default.svc
     namespace: kubeflow-training
-    createNamespace: true
   source:
     repoURL: https://github.com/kubeflow/manifests
     path: applications/training-operator/upstream/overlays/standalone
