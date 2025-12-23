@@ -4,7 +4,7 @@ metadata:
   name: training-operators
   namespace: argocd
   annotations:
-    argocd.argoproj.io/sync-wave: "0" # Deploy FIRST (CRDs must be present)
+    argocd.argoproj.io/sync-wave:
 spec:
   project: default
   destination:
