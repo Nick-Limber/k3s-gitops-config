@@ -9,7 +9,7 @@ spec:
   project: default
   source:
     repoURL: 'https://github.com/kubeflow/manifests.git'
-    path: applications/pipeline/upstream/base/pipeline
+    path: applications/pipeline/upstream/env/cert-manager/platform-agnostic-multi-user-k8s-native
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: kubeflow
