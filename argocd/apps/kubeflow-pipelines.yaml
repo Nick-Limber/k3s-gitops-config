@@ -20,6 +20,8 @@ spec:
     syncOptions:
       - CreateNamespace=true
       - ServerSideApply=true
+      - Replace=true
+      - Force=true
   ignoreDifferences:
     - group: argoproj.io
       kind: Workflow
