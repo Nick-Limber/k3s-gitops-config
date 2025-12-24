@@ -13,6 +13,7 @@ spec:
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: kubeflow
+    
   syncPolicy:
     automated:
       prune: true
@@ -22,6 +23,7 @@ spec:
       - ServerSideApply=true
       - Replace=true
       - Force=true
+
   ignoreDifferences:
     - group: argoproj.io
       kind: Workflow
