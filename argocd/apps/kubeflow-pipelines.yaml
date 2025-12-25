@@ -13,7 +13,7 @@ spec:
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: kubeflow
-    
+
   syncPolicy:
     automated:
       prune: true
@@ -29,3 +29,12 @@ spec:
       kind: Workflow
       jsonPointers:
         - /status
+    - group: ""
+      kind: PersistentVolumeClaim
+      jsonPointers:
+        - /spec/storageClassName
+        - /spec/volumeName
+    - group: admissionregistration.k8s.io
+      kind: MutatingWebhookConfiguration
+      jsonPointers:
+        - /webhooks/0/clientConfig/caBundle
