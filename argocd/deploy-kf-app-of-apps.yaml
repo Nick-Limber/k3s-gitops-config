@@ -1,9 +1,17 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: deploykf-app-of-apps
+  namespace: argocd
+spec:
+  project: default
+  source:
     repoURL: https://github.com/Nick-Limber/k3s-gitops-config
     targetRevision: HEAD
     path: argocd/apps
     
     plugin:
-      name: deploykf
+      name: deploykf-root-app.yaml
       env:
         ## 2. Tell the plugin to fetch the official deployKF code
         - name: PARAM_SOURCE_VERSION
@@ -14,6 +22,6 @@
             argocd:
               appNamePrefix: "my-dkf-"
             # ... other overrides ...
-  destination:
+    destination:
     server: 'https://kubernetes.default.svc'
     namespace: argocd
