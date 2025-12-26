@@ -1,11 +1,3 @@
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
-  name: deploykf-app-of-apps
-  namespace: argocd
-spec:
-  project: default
-  source:
     repoURL: https://github.com/Nick-Limber/k3s-gitops-config
     targetRevision: HEAD
     path: argocd/apps
@@ -14,9 +6,8 @@ spec:
       name: deploykf
       env:
         ## 2. Tell the plugin to fetch the official deployKF code
-        - name: SOURCE_VERSION
+        - name: PARAM_SOURCE_VERSION
           value: "v0.1.5"
-        
         ## 3. Your custom values
         - name: VALUES
           value: |
