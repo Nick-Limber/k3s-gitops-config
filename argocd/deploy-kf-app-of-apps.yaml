@@ -15,7 +15,7 @@ spec:
       env:
         ## 2. Tell the plugin to fetch the official deployKF code
         - name: PARAM_SOURCE_VERSION
-          value: "v0.1.5"
+          value: "v0.1.5" 
         ## 3. Your custom values
         - name: VALUES
           value: |
