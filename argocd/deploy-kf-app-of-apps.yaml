@@ -11,7 +11,7 @@ spec:
     path: argocd/apps
     
     plugin:
-      name: deploykf-root-app.yaml
+      name: deploykf-v1.0
       env:
         ## 2. Tell the plugin to fetch the official deployKF code
         - name: PARAM_SOURCE_VERSION
